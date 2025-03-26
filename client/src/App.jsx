@@ -1,34 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css"
+import Catalog from "./components/catalog/Catalog"
+import Footer from "./components/footer/Footer"
+import Header from './components/header/Header'
+import Home from "./components/home/Home"
+import { Route, Routes } from 'react-router'
+import Login from "./components/login/Login"
+import Register from "./components/register/Register"
+import Create from "./components/create/Create"
+import Details from "./components/details/Details"
+import { UserContext } from "./context/UserContext"
+import Edit from "./components/edit/Edit"
+import Logout from "./components/logout/Logout"
+import usePersistedState from "./hooks/usePersistedState"
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [authData, setAuthData] = usePersistedState('auth', {});
+
+  const userLoginHandler = (resultData) => {
+    setAuthData(resultData)
+
+  };
+
+  const userLogoutHandler = () => {
+    setAuthData({});
+  }
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <UserContext.Provider value={{ ...authData, userLoginHandler, userLogoutHandler }}>
+    <div id="box">
+      <Header />
+      <main id="main-content">
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/vinyls" element={<Catalog />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="/vinyls/create" element={<Create />}></Route>
+          <Route path="/vinyls/:vinylId/details" element={<Details />}></Route>
+          <Route path="/vinyls/:vinylId/edit" element={<Edit />}></Route>
+          <Route path="/logout" element={<Logout />}></Route>
+        </Routes>
+      </main>
+      < Footer />
+    </div>
+    </UserContext.Provider>
   )
 }
 
