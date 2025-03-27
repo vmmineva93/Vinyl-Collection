@@ -1488,6 +1488,100 @@
     	},
     	orders: {
     	},
+        vinyls: {
+            "a699f37c-a67b-4fa8-9f7e-fef3c92f739a": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                artist: "Frank Sinatra",
+                album: "Come Fly With Me",
+                label: "Capitol Records ",
+                country: "US",
+                released: "1957",
+                genre: "Jazz, Pop",
+                imageUrl: "https://i.discogs.com/gTyEuTW3_1s2Y2srnx5eB7BvK4xsVZv6USNjhb9o4mw/rs:fit/g:sm/q:90/h:591/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNTQz/NjMtMTUwMjMxMjkz/OC04NDY2LmpwZWc.jpeg",
+                description: "Come Fly with Me is the fourteenth studio album by American singer Frank Sinatra, released in 1958. In 2000 it was voted number 616 in Colin Larkin's All Time Top 1000 Albums.",
+                _createdOn: 1742992642407,
+                _id: "a699f37c-a67b-4fa8-9f7e-fef3c92f739a"
+            },
+            "dea7af0c-0aff-4415-b1a5-46e85989b3aa": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                artist: "Lindemann ",
+                album: "Skills In Pills",
+                label: "Warner Music Central Europe",
+                country: "Europe",
+                released: "2015",
+                genre: "Rock",
+                imageUrl: "https://i.discogs.com/KNwNnvazMGWow6lyHtkvM8zWgFYQCmu9NsNGyDIt_VE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTcxNDEw/MDMtMTQzNDYzMjMx/NS04NzE0LmpwZWc.jpeg",
+                description: "Skills in Pills is the debut studio album by the European supergroup Lindemann, featuring Rammstein frontman Till Lindemann and Peter Tägtgren, founder of Hypocrisy and Pain. It was released on 23 June 2015 through Warner Central Europe. ",
+                _createdOn: 1742993876443,
+                _id: "dea7af0c-0aff-4415-b1a5-46e85989b3aa"
+            },
+            "14d87c7d-d763-4397-a3a6-521cce7cde85": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                artist: "Paul McCartney",
+                album: "Off The Ground",
+                label: "Parlophone",
+                country: "Europe",
+                released: "1993",
+                genre: "Rock, Pop",
+                imageUrl: "https://i.discogs.com/tgeFpYj27JMWR0VG-EWUflv_lKV_iLX2oU0YEmI9Inc/rs:fit/g:sm/q:90/h:593/w:595/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwNzY3/NzUtMTE5MDMyMjIx/Mi5qcGVn.jpeg",
+                description: "Off the Ground is the ninth solo studio album by Paul McCartney. It was released on 1 February 1993, through Parlophone in the UK and Capitol Records in the US. The record was produced by McCartney with Julian Mendelsohn. As his first studio album of the 1990s, it is also the follow-up to the well received Flowers in the Dirt (1989).",
+                _createdOn: 1743110531901,
+                _id: "14d87c7d-d763-4397-a3a6-521cce7cde85"
+            },
+            "15a7d269-93dc-4ec3-a2c7-3097d29a7b9b": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                artist: "Rammstein",
+                album: "Mutter",
+                label: "Universal Music ",
+                country: "Europe",
+                released: "2001",
+                genre: "Electronic, Rock",
+                imageUrl: "https://i.discogs.com/fyjn1fLRkA4dTOMtvMMFIyj1I3AKDHBw7nYJ_7DdotA/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2MzUy/NDktMTUyNzk0Mzg3/Mi04MjY0LmpwZWc.jpeg",
+                description: "Mutter is the third studio album by German Neue Deutsche Härte band Rammstein. It was released on 2 April 2001 through Motor and Universal Music. The album has yielded six singles which, to date, are the most released from any Rammstein album.",
+                _createdOn: 1743111162035,
+                _id: "15a7d269-93dc-4ec3-a2c7-3097d29a7b9b"
+            },
+            "a484294b-5953-4648-bcca-aed3125dfd70": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                artist: "Depeche Mode",
+                album: "Violator",
+                label: "Mute - Stumm 64",
+                country: "UK",
+                released: "1990",
+                genre: "Electronic",
+                imageUrl: "https://i.discogs.com/DTZx33OqUlUowjvskQDAhExfHXlkaULg9vFSA0iUQys/rs:fit/g:sm/q:90/h:599/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ2OTA1/LTE2NjYyMDQ3Mzgt/OTUzMC5qcGVn.jpeg",
+                description: "Preceded by the singles \"Personal Jesus\" and \"Enjoy the Silence\" (a top-10 entry in both the United Kingdom and the United States), the album propelled the band into international stardom, and also yielded the singles \"Policy of Truth\" and \"World in My Eyes\". Violator reached number two on the UK Albums Chart, and was the band's first album to chart inside the top 10 of the Billboard 200, peaking at number seven.",
+                _createdOn: 1743111594341,
+                _id: "a484294b-5953-4648-bcca-aed3125dfd70"
+            },
+            "bc3e333d-cbe1-46e1-bc7a-eb23d2bd3498": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                artist: "The Prodigy",
+                album: "The Day Is My Enemy",
+                label: "Take Me To The Hospital ",
+                country: "UK",
+                released: "2015",
+                genre: "Electronic",
+                imageUrl: "https://i.discogs.com/_POmL4_AluMK8VuTexfUIh3FpVmI-LSo1DOowcBUId8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY4MjI2/NTAtMTQyNzM5NDI5/Ni02MDc4LmpwZWc.jpeg",
+                description: "The Day Is My Enemy is the sixth studio album by English electronic music group the Prodigy. It was released on 30 March 2015 by the record labels Take Me to the Hospital/Cooking Vinyl in the UK and Three Six Zero Music/Warner Bros. Records in the United States.",
+                _createdOn: 1743112180925,
+                _id: "bc3e333d-cbe1-46e1-bc7a-eb23d2bd3498"
+            },
+            "2a6d627b-2268-43ea-b806-4195ad5c6f84": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                artist: "Luciano Pavarotti",
+                album: "The Ultimate Collection",
+                label: "Universal Music Group",
+                country: "UK",
+                released: "2007",
+                genre: "Classical",
+                imageUrl: "https://i.discogs.com/glAUNkI0ZNIQOrJM3cpNtGxEMU06nB2ljNF9fdyzixY/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2MjAw/NjQ5LTE2NzgwMzU5/MjEtNDc1MC5qcGVn.jpeg",
+                description: "The Ultimate Collection is a greatest hits compilation album released by Italian opera tenor Luciano Pavarotti. It was released in the UK on September 10, 2007, four days after Pavarotti's death.The album includes 20 of his very well known hits (including the smash hit \"Nessun dorma\"), plus an extra track called \"Live Like Horses\" (a collaboration with Elton John).",
+                _createdOn: 1743113244177,
+                _id: "2a6d627b-2268-43ea-b806-4195ad5c6f84"
+            }
+
+        },
     	movies: {
     		"1240549d-f0e0-497e-ab99-eb8f703713d7": {
     			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
