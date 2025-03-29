@@ -7,7 +7,7 @@ export default function Header() {
    return (
       <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
          <Link to="/" className="navbar-brand d-flex align-items-center">
-            <img src="../../../public/images/logoClub.jpg" width='50' alt="logo" />
+            <img src="../../../public/images/newVinyl.png" width='70' alt="logo" />
          </Link>
          <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span className="navbar-toggler-icon"></span>

@@ -637,3 +637,12 @@ a:hover {
     margin: 100px auto;
 }
 
+
+img.hearts {
+    width: 33px;
+    height: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+
