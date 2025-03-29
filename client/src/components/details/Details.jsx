@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams, Navigate } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { useDeleteVinyl, useVinyl } from "../../api/vinylApi";
 import useAuth from "../../hooks/useAuth";
 
