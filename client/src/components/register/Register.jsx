@@ -1,6 +1,6 @@
 import { useUserContext } from "../../context/UserContext";
 import { useRegister } from "../../api/authApi";
-import { useNavigate, Link } from "react-router";
+import { useNavigate, Link, Navigate } from "react-router";
 
 export default function Register() {
     const navigate = useNavigate();
