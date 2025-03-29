@@ -13,8 +13,7 @@ export default function Register() {
         const confirmPassword = formData.get('confirm-password');
 
         if (password !== confirmPassword) {
-
-            return;
+            console.log('Password missmatch!');
         }
 
         const authData = await register(email, password);

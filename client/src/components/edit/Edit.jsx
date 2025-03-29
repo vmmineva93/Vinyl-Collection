@@ -4,23 +4,25 @@ import useAuth from "../../hooks/useAuth";
 
 export default function Edit() {
     const navigate = useNavigate()
-    const { userId } = useAuth(); 
+    const { userId } = useAuth();
     const { vinylId } = useParams();
-    const { vinyl } = useVinyl(vinylId)
+    const { vinyl } = useVinyl(vinylId);
     const { edit } = useEditVinyl();
 
     const formAction = async (formData) => {
+
         const vinylData = Object.fromEntries(formData);
 
         await edit(vinylId, vinylData);
 
         navigate(`/vinyls/${vinylId}/details`);
+
     }
 
-    const isOwner = userId === vinyl._ownerId;
-    if (!isOwner) {
-        return <Navigate to="/vinyls" />
-    }
+    const isOwner = userId && userId === vinyl._ownerId;
+        if (!isOwner) {
+            return <Navigate to="/vinyls"/>
+        }
 
     return (
         <div className="form-wrapper">
@@ -51,7 +53,7 @@ export default function Edit() {
                 </div>
                 <div className="form-group">
                     <label htmlFor="imageUrl"></label>
-                    <input type="text" className="form-control" name="imageUrl" id="imageUrl" defaultValue={vinyl.imageUrl}/>
+                    <input type="text" className="form-control" name="imageUrl" id="imageUrl" defaultValue={vinyl.imageUrl} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="description"></label>

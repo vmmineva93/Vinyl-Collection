@@ -24,7 +24,7 @@ export const useLatestVinyls = () => {
         const searchParams = new URLSearchParams({
             sortBy: '_createdOn desc',
             pageSize: 3,
-            select: '_id,imageUrl,title,album,artist',
+            select: '_id,imageUrl,album,artist',
         })
         request.get(`${baseUrl}?${searchParams.toString()}`)
             .then(setLatestVinyls)

@@ -8,6 +8,7 @@ export default function Details() {
     const { vinylId } = useParams();
     const { vinyl } = useVinyl(vinylId);
     const { deleteVinyl } = useDeleteVinyl();
+    
 
     const vinylDeleteClickHandler = async () => {
         const hasConfirm = confirm(`Are you sure you want to delete ${vinyl.album} vinyl?`);
