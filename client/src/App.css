@@ -252,8 +252,8 @@ a:hover {
 
 .header-carousel .owl-nav .owl-prev:hover,
 .header-carousel .owl-nav .owl-next:hover {
-    background: var(--primary);
-    border-color: var(--primary);
+    background: pink !important;
+    border-color: pink !important;
 }
 
 .header-carousel .owl-dots {
@@ -291,8 +291,8 @@ a:hover {
 }
 
 .header-carousel .owl-dot.active {
-    background: var(--primary);
-    border-color: var(--primary);
+    background: pink !important;
+    border-color: pink !important;
 }
 
 .page-header {
@@ -644,5 +644,4 @@ img.hearts {
     position: relative;
     display: inline-block;
 }
-
 
