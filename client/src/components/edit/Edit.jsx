@@ -1,26 +1,33 @@
 import { Navigate, useNavigate, useParams } from "react-router";
 import { useEditVinyl, useVinyl } from "../../api/vinylApi"
 import useAuth from "../../hooks/useAuth";
+import { useEffect } from "react";
 
 export default function Edit() {
     const navigate = useNavigate()
-    const { userId } = useAuth();
+    const { userId = 'default'} = useAuth();
     const { vinylId } = useParams();
     const { vinyl } = useVinyl(vinylId);
     const { edit } = useEditVinyl();
 
-    const formAction = async (formData) => {
+    const formAction = (formData) => {
 
-        const vinylData = Object.fromEntries(formData);
+        const vinylData = { ...Object.fromEntries(formData), likedBy: vinyl?.likedBy };
 
-        await edit(vinylId, vinylData, vinyl?.likedBy);
+        edit(vinylId, vinylData);
 
         navigate(`/vinyls/${vinylId}/details`);
 
     }
 
-    const isOwner = userId && userId === vinyl._ownerId;
-    
+    // useEffect(() => {
+    //     const isOwner = userId && userId === vinyl._ownerId;
+    //     if (vinyl && userId !=='default' && !isOwner) {
+    //         <Navigate to="/vinyls" />
+    //     }
+    // }, [userId, vinyl])
+
+
     return (
         <div className="form-wrapper">
             <form action={formAction}>

@@ -20,6 +20,7 @@ export default function Details() {
     }, [initialVinyl])
 
     const onLikeButtonClick = async () => {
+          
         const updatedVinyl = await likeVinyl(vinyl);
         setVinyl(updatedVinyl || initialVinyl); // Update state with new vinyl data
     }

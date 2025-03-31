@@ -82,9 +82,8 @@ export const useCreateVinyl = () => {
 export const useEditVinyl = () => {
     const { request } = useAuth()
 
-    const edit = (vinylId, vinylData, likedBy) => {
-        console.log('tstttt', likedBy);
-        request.put(`${baseUrl}/${vinylId}`, { ...vinylData, _id: vinylId, ...likedBy });
+    const edit = (vinylId, vinylData) => {
+        request.put(`${baseUrl}/${vinylId}`, { ...vinylData, _id: vinylId });
     }
       
 
