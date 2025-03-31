@@ -1,8 +1,9 @@
 import useAuth from "../hooks/useAuth";
 import request from "../utils/request";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const baseUrl = 'http://localhost:3030/data/vinyls';
+const likesURL = 'http://localhost:3030/data/likes';
 
 export const useVinyls = () => {
     const [vinyls, setVinyls] = useState([]);
@@ -48,23 +49,44 @@ export const useVinyl = (vinylId) => {
     };
 };
 
+export const useLikeVinyl = () => {
+    const { request, userId } = useAuth()
+
+
+    const likeVinyl = (vinyl) => {
+        if (vinyl?.likedBy?.includes(userId)) {
+            return
+        }
+
+        return request.put(`${baseUrl}/${vinyl?._id}`, { ...vinyl, likedBy: [...vinyl.likedBy, userId] });
+    }
+
+    return {
+        likeVinyl
+    }
+}
+
+
 export const useCreateVinyl = () => {
     const { request } = useAuth();
 
     const create = (vinylData) => {
-        request.post(baseUrl, vinylData);
+        request.post(baseUrl, { ...vinylData, likedBy: [] });
     }
 
     return {
-        create,
+        create
     }
 };
 
 export const useEditVinyl = () => {
     const { request } = useAuth()
 
-    const edit = (vinylId, vinylData) => 
-        request.put(`${baseUrl}/${vinylId}`, { ...vinylData, _id: vinylId });
+    const edit = (vinylId, vinylData, likedBy) => {
+        console.log('tstttt', likedBy);
+        request.put(`${baseUrl}/${vinylId}`, { ...vinylData, _id: vinylId, ...likedBy });
+    }
+      
 
     return {
         edit,
@@ -74,7 +96,7 @@ export const useEditVinyl = () => {
 export const useDeleteVinyl = () => {
     const { request } = useAuth();
 
-    const deleteVinyl = (vinylId) => 
+    const deleteVinyl = (vinylId) =>
         request.delete(`${baseUrl}/${vinylId}`);
 
     return {

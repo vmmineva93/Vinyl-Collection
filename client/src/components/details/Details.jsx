@@ -1,14 +1,28 @@
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
-import { useDeleteVinyl, useVinyl } from "../../api/vinylApi";
+import { useDeleteVinyl, useVinyl, useLikeVinyl } from "../../api/vinylApi";
 import useAuth from "../../hooks/useAuth";
 
 export default function Details() {
     const navigate = useNavigate();
     const { userId } = useAuth()
     const { vinylId } = useParams();
-    const { vinyl } = useVinyl(vinylId);
+    const { vinyl: initialVinyl } = useVinyl(vinylId);
+    const { likeVinyl } = useLikeVinyl();
+    // const { vinylLikes } = useLikesByVinylId(vinylId);
     const { deleteVinyl } = useDeleteVinyl();
-    
+    const [vinyl, setVinyl] = useState({});
+
+    useEffect(() => {
+        if (initialVinyl) {
+            setVinyl(initialVinyl);
+        }
+    }, [initialVinyl])
+
+    const onLikeButtonClick = async () => {
+        const updatedVinyl = await likeVinyl(vinyl);
+        setVinyl(updatedVinyl || initialVinyl); // Update state with new vinyl data
+    }
 
     const vinylDeleteClickHandler = async () => {
         const hasConfirm = confirm(`Are you sure you want to delete ${vinyl.album} vinyl?`);
@@ -22,8 +36,8 @@ export default function Details() {
         navigate('/vinyls');
     };
 
-    const isOwner = userId === vinyl._ownerId;
-    
+    const isOwner = userId === vinyl?._ownerId;
+
     return (
         <div className="container-fluid bg-light overflow-hidden my-5 px-lg-0">
             <div className="container feature px-lg-0">
@@ -72,11 +86,6 @@ export default function Details() {
                                         <div className="col-12 col-lg-8 text-center">
                                             <Link to={`/vinyls/${vinylId}/edit`} className="btn btn-primary rounded-pill py-md-3 px-md-5 me-3 animated slideInLeft">Edit</Link>
                                             <button onClick={vinylDeleteClickHandler} className="btn btn-primary rounded-pill py-md-3 px-md-5 me-3 animated slideInLeft">Delete</button>
-                                            <Link to="/vinyls" className="btn btn-primary rounded-pill py-md-3 px-md-5 me-3 animated slideInLeft">Like</Link>
-                                            <div className="likes">
-                                                <img className="hearts" src="/images/heart.png" />
-                                                <span id="total-likes">Likes: 0</span>
-                                            </div>
                                         </div>
                                     </div>
 
@@ -94,6 +103,11 @@ export default function Details() {
 
                                     // </div>
                                 )}
+                                <button onClick={onLikeButtonClick} className="btn btn-primary rounded-pill py-md-3 px-md-5 me-3 animated slideInLeft">Like</button>
+                                <div className="likes">
+                                    <img className="hearts" src="/images/heart.png" />
+                                    <span id="total-likes">Likes: {vinyl?.likedBy?.length}</span>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -13,17 +13,14 @@ export default function Edit() {
 
         const vinylData = Object.fromEntries(formData);
 
-        await edit(vinylId, vinylData);
+        await edit(vinylId, vinylData, vinyl?.likedBy);
 
         navigate(`/vinyls/${vinylId}/details`);
 
     }
 
     const isOwner = userId && userId === vinyl._ownerId;
-        if (!isOwner) {
-            return <Navigate to="/vinyls"/>
-        }
-
+    
     return (
         <div className="form-wrapper">
             <form action={formAction}>
