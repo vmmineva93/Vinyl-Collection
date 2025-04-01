@@ -3,18 +3,26 @@ import request from "../utils/request";
 import { useEffect, useState } from "react";
 
 const baseUrl = 'http://localhost:3030/data/vinyls';
-const likesURL = 'http://localhost:3030/data/likes';
 
 export const useVinyls = () => {
     const [vinyls, setVinyls] = useState([]);
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         request.get(baseUrl)
-            .then(setVinyls)
+            .then((data) => {
+                setVinyls(data);
+                setIsLoading(false);
+            })
+            .catch((error) => {
+                alert("Error fetching vinyls:", error);
+                setIsLoading(false);
+            });
     }, []);
 
     return {
         vinyls,
+        isLoading
     }
 };
 
@@ -28,7 +36,8 @@ export const useLatestVinyls = () => {
             select: '_id,imageUrl,album,artist',
         })
         request.get(`${baseUrl}?${searchParams.toString()}`)
-            .then(setLatestVinyls)
+            .then((data) => setLatestVinyls(data))
+            .catch((error) => alert('Error fetching latest vinyls', error))
     }, []);
 
     return {
@@ -38,11 +47,12 @@ export const useLatestVinyls = () => {
 
 export const useVinyl = (vinylId) => {
     const [vinyl, setVinyl] = useState({});
-    const { request, userId } = useAuth()
+    const { request } = useAuth()
 
     useEffect(() => {
         request.get(`${baseUrl}/${vinylId}`)
-            .then(setVinyl);
+            .then((data) => setVinyl(data))
+            .catch((error) => alert('Error fetching vinyl', error))
     }, [vinylId])
 
 
@@ -82,10 +92,15 @@ export const useCreateVinyl = () => {
 export const useEditVinyl = () => {
     const { request } = useAuth()
 
-    const edit = (vinylId, vinylData) => {
-        request.put(`${baseUrl}/${vinylId}`, { ...vinylData, _id: vinylId });
+    const edit = async (vinylId, vinylData) => {
+        try {
+            const response = await request.put(`${baseUrl}/${vinylId}`, { ...vinylData, _id: vinylId });
+            return response;
+        } catch (error) {
+            console.error("Error editing vinyl:", error);
+            throw error;
+        }
     }
-      
 
     return {
         edit,

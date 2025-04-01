@@ -2,7 +2,9 @@ import CatalogVinylItem from "./CatalogVinylItem/CatalogVinylItem";
 import { useVinyls } from "../../api/vinylApi";
 
 export default function Catalog() {
-    const { vinyls } = useVinyls();
+    const { vinyls, isLoading } = useVinyls();
+
+    if (isLoading) return (<div>Loading...</div>)
     return (
         <div className="container-xxl py-5">
             <div className="container">

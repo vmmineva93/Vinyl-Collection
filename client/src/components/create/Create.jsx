@@ -18,35 +18,35 @@ export default function Create() {
                 <form action={submitAction}>
                     <div className="form-group">
                         <label htmlFor="artist"></label>
-                        <input type="text" className="form-control" name="artist" id="artist" placeholder="Artist" />
+                        <input required type="text" className="form-control" name="artist" id="artist" placeholder="Artist" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="album"></label>
-                        <input type="text" className="form-control" name="album" id="album" placeholder="Album" />
+                        <input required type="text" className="form-control" name="album" id="album" placeholder="Album" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="label"></label>
-                        <input type="text" className="form-control" name="label" id="label" placeholder="Label" />
+                        <input required type="text" className="form-control" name="label" id="label" placeholder="Label" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="country"></label>
-                        <input type="text" className="form-control" name="country" id="country" placeholder="Country" />
+                        <input required type="text" className="form-control" name="country" id="country" placeholder="Country" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="released"></label>
-                        <input type="number" className="form-control" name="released" id="released" placeholder="Released" />
+                        <input required type="number" className="form-control" name="released" id="released" placeholder="Released" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="genre"></label>
-                        <input type="text" className="form-control" name="genre" id="genre" placeholder="Genre" />
+                        <input required type="text" className="form-control" name="genre" id="genre" placeholder="Genre" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="imageUrl"></label>
-                        <input type="text" className="form-control" name="imageUrl" id="imageUrl" placeholder="Image" />
+                        <input required type="text" className="form-control" name="imageUrl" id="imageUrl" placeholder="Image" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="description"></label>
-                        <textarea name="description" className="form-control" id="description" placeholder="Description"></textarea>
+                        <textarea required name="description" className="form-control" id="description" placeholder="Description"></textarea>
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>

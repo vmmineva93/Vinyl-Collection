@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import { useDeleteVinyl, useVinyl, useLikeVinyl } from "../../api/vinylApi";
 import useAuth from "../../hooks/useAuth";
+import styles from "./Details.module.css"
 
 export default function Details() {
     const navigate = useNavigate();
@@ -9,7 +10,6 @@ export default function Details() {
     const { vinylId } = useParams();
     const { vinyl: initialVinyl } = useVinyl(vinylId);
     const { likeVinyl } = useLikeVinyl();
-    // const { vinylLikes } = useLikesByVinylId(vinylId);
     const { deleteVinyl } = useDeleteVinyl();
     const [vinyl, setVinyl] = useState({});
     const isVinylLikedByCurrentUser = vinyl?.likedBy?.includes(userId)
@@ -21,9 +21,8 @@ export default function Details() {
     }, [initialVinyl])
 
     const onLikeButtonClick = async () => {
-          
         const updatedVinyl = await likeVinyl(vinyl);
-        setVinyl(updatedVinyl); // Update state with new vinyl data
+        setVinyl(updatedVinyl); 
     }
 
     const vinylDeleteClickHandler = async () => {
@@ -40,86 +39,82 @@ export default function Details() {
 
     const isOwner = userId === vinyl?._ownerId;
 
+    if (!vinyl) return (<div>No information for this vinyl</div>)
+
     return (
-        <div className="container-fluid bg-light overflow-hidden my-5 px-lg-0">
-            <div className="container feature px-lg-0">
-                <div className="row g-0 mx-lg-0">
-                    <div className="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.5s">
-                        <div className="p-lg-5 ps-lg-0">
-                            <div className="bg-primary mb-3"></div>
-                            <h5 className="display-5 mb-5">{vinyl.artist}</h5>
-                            <h5 className="display-5 mb-5">{vinyl.album}</h5>
-                            <p className="mb-4 pb-2">{vinyl.description}</p>
-                            <div className="row g-4">
-                                <div className="col-6">
-                                    <div className="d-flex align-items-center">
-                                        <div className="ms-4">
-                                            <p className="text-primary mb-2">Label:</p>
-                                            <h5 className="mb-0">{vinyl.label}</h5>
-                                        </div>
+        <div className={styles["outer-container"]}>
+        <div className={styles["inner-container"]}>
+            <div className={styles["details-container"]}>
+                <div className={styles["left-container"]}>
+                    <div className={styles["text-container"]}>
+                        <h1 className={styles["display-artist"]}>{vinyl.artist}</h1>
+                        <h1 className={styles["display-album"]}>{vinyl.album}</h1>
+                        <p className={styles["display-description"]}>{vinyl.description}</p>
+                        <div className={styles["vinyl-info"]}>
+                            <div className={styles["col-6"]}>
+                                <div className={styles["d-flex"]}>
+                                    <div className={styles["ms-4"]}>
+                                        <p className={styles["paragraph-info"]}>Label:</p>
+                                        <h5 className={styles["mb-0"]}>{vinyl.label}</h5>
                                     </div>
                                 </div>
-                                <div className="col-6">
-                                    <div className="d-flex align-items-center">
-                                        <div className="ms-4">
-                                            <p className="text-primary mb-2">Country:</p>
-                                            <h5 className="mb-0">{vinyl.country}</h5>
-                                        </div>
+                            </div>
+                            <div className={styles["col-6"]}>
+                                <div className={styles["d-flex"]}>
+                                    <div className={styles["ms-4"]}>
+                                        <p className={styles["paragraph-info"]}>Country:</p>
+                                        <h5 className={styles["mb-0"]}>{vinyl.country}</h5>
                                     </div>
                                 </div>
-                                <div className="col-6">
-                                    <div className="d-flex align-items-center">
-                                        <div className="ms-4">
-                                            <p className="text-primary mb-2">Released:</p>
-                                            <h5 className="mb-0">{vinyl.released}</h5>
-                                        </div>
+                            </div>
+                            <div className={styles["col-6"]}>
+                                <div className={styles["d-flex"]}>
+                                    <div className={styles["ms-4"]}>
+                                        <p className={styles["paragraph-info"]}>Released:</p>
+                                        <h5 className={styles["mb-0"]}>{vinyl.released}</h5>
                                     </div>
                                 </div>
-                                <div className="col-6">
-                                    <div className="d-flex align-items-center">
-                                        <div className="ms-4">
-                                            <p className="text-primary mb-2">Genre:</p>
-                                            <h5 className="mb-0">{vinyl.genre}</h5>
-                                        </div>
+                            </div>
+                            <div className={styles["col-6"]}>
+                                <div className={styles["d-flex"]}>
+                                    <div className={styles["ms-4"]}>
+                                        <p className={styles["paragraph-info"]}>Genre:</p>
+                                        <h5 className={styles["mb-0"]}>{vinyl.genre}</h5>
                                     </div>
                                 </div>
-                                {isOwner && (
-                                    <div className="row justify-content-center">
-                                        <div className="col-12 col-lg-8 text-center">
-                                            <Link to={`/vinyls/${vinylId}/edit`} className="btn btn-primary rounded-pill py-md-3 px-md-5 me-3 animated slideInLeft">Edit</Link>
-                                            <button onClick={vinylDeleteClickHandler} className="btn btn-primary rounded-pill py-md-3 px-md-5 me-3 animated slideInLeft">Delete</button>
-                                        </div>
+                            </div>
+                            
+                            <div className={styles["col-6b"]}>
+                                <div className={styles["d-flexb"]}>
+                                {isOwner && (<>
+                                    <Link to={`/vinyls/${vinylId}/edit`} className={styles["btn-class"]}>Edit</Link>
+                                    <button onClick={vinylDeleteClickHandler} className={styles["btn-class"]}>Delete</button>
+                                    </>)}
+                                    <button onClick={onLikeButtonClick} className={styles["btn-class"]}>{isVinylLikedByCurrentUser ? "Dislike" : "Like"}</button>
+                                </div>
+                            </div>
+                        <div className={styles["col-6"]}>
+                            <div className={styles["d-flex"]}>
+                                <div className={styles["ms-4"]}>
+                                    <div className={styles["likes"]}>
+                                        <img className="hearts" src="../../../public/images/heart.png" height="30px" width="30px" />
+                                        <span id="total-likes">Likes: {vinyl?.likedBy?.length}</span>
                                     </div>
-
-                                    // <div className="actions">
-
-                                    //     <Link to={`/vinyls/${vinylId}/edit`} className="button" >Edit</Link>
-                                    //     <Link className="button" onClick={vinylDeleteClickHandler}>Delete</Link>
-
-                                    //     <Link className="button" to="#">Like</Link>
-
-                                    //     <div className="likes">
-                                    //         <img className="hearts" src="/images/heart.png" />
-                                    //         <span id="total-likes">Likes: 0</span>
-                                    //     </div>
-
-                                    // </div>
-                                )}
-                                <button onClick={onLikeButtonClick} className="btn btn-primary rounded-pill py-md-3 px-md-5 me-3 animated slideInLeft">{isVinylLikedByCurrentUser ? "Dislike" : "Like"}</button>
-                                <div className="likes">
-                                    <img className="hearts" src="/images/heart.png" />
-                                    <span id="total-likes">Likes: {vinyl?.likedBy?.length}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-6 pe-lg-0">
-                        <div className="position-relative h-100">
-                            <img className="position-absolute img-fluid w-100 h-100" src={vinyl.imageUrl} alt="" />
-                        </div>
-                    </div>
+                </div>
+            </div>
+            <div className={styles["right-container"]}>
+                <div className={styles["pic-container"]}>
+                    <img className={styles["img-position"]}
+                        src={vinyl.imageUrl}
+                        alt="" />
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     );
 }
