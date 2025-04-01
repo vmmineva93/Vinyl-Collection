@@ -38,14 +38,16 @@ export const useLatestVinyls = () => {
 
 export const useVinyl = (vinylId) => {
     const [vinyl, setVinyl] = useState({});
+    const { request, userId } = useAuth()
 
     useEffect(() => {
         request.get(`${baseUrl}/${vinylId}`)
             .then(setVinyl);
     }, [vinylId])
 
+
     return {
-        vinyl,
+        vinyl
     };
 };
 
@@ -54,11 +56,9 @@ export const useLikeVinyl = () => {
 
 
     const likeVinyl = (vinyl) => {
-        if (vinyl?.likedBy?.includes(userId)) {
-            return
-        }
-
-        return request.put(`${baseUrl}/${vinyl?._id}`, { ...vinyl, likedBy: [...vinyl.likedBy, userId] });
+        const isVinylLikedByCurrentUser = vinyl?.likedBy?.includes(userId);
+        const likedBy = isVinylLikedByCurrentUser ? vinyl?.likedBy?.filter(item => item !== userId) : [...vinyl.likedBy, userId]
+        return request.put(`${baseUrl}/${vinyl?._id}`, { ...vinyl, likedBy });
     }
 
     return {

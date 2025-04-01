@@ -12,6 +12,7 @@ export default function Details() {
     // const { vinylLikes } = useLikesByVinylId(vinylId);
     const { deleteVinyl } = useDeleteVinyl();
     const [vinyl, setVinyl] = useState({});
+    const isVinylLikedByCurrentUser = vinyl?.likedBy?.includes(userId)
 
     useEffect(() => {
         if (initialVinyl) {
@@ -22,7 +23,7 @@ export default function Details() {
     const onLikeButtonClick = async () => {
           
         const updatedVinyl = await likeVinyl(vinyl);
-        setVinyl(updatedVinyl || initialVinyl); // Update state with new vinyl data
+        setVinyl(updatedVinyl); // Update state with new vinyl data
     }
 
     const vinylDeleteClickHandler = async () => {
@@ -104,7 +105,7 @@ export default function Details() {
 
                                     // </div>
                                 )}
-                                <button onClick={onLikeButtonClick} className="btn btn-primary rounded-pill py-md-3 px-md-5 me-3 animated slideInLeft">Like</button>
+                                <button onClick={onLikeButtonClick} className="btn btn-primary rounded-pill py-md-3 px-md-5 me-3 animated slideInLeft">{isVinylLikedByCurrentUser ? "Dislike" : "Like"}</button>
                                 <div className="likes">
                                     <img className="hearts" src="/images/heart.png" />
                                     <span id="total-likes">Likes: {vinyl?.likedBy?.length}</span>

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export default function Edit() {
     const navigate = useNavigate()
-    const { userId = 'default'} = useAuth();
+    const { userId = 'default' } = useAuth();
     const { vinylId } = useParams();
     const { vinyl } = useVinyl(vinylId);
     const { edit } = useEditVinyl();
@@ -20,12 +20,13 @@ export default function Edit() {
 
     }
 
-    // useEffect(() => {
-    //     const isOwner = userId && userId === vinyl._ownerId;
-    //     if (vinyl && userId !=='default' && !isOwner) {
-    //         <Navigate to="/vinyls" />
-    //     }
-    // }, [userId, vinyl])
+    useEffect(() => {
+        const isOwner = userId && userId === vinyl._ownerId;
+        console.log('vinyl._ownerId', vinyl._ownerId)
+        if (Object.keys(vinyl).length && userId !== 'default' && !isOwner) {
+            navigate('/vinyls')
+        }
+    }, [userId, vinyl])
 
 
     return (
