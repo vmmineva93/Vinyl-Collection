@@ -19,7 +19,7 @@ export default function RecentlyAdded({
                     <p className="text-primary mb-2">{artist}</p>
                     <h5 className="lh-base mb-3">{album}</h5>
                     <div className="d-flex justify-content-center">
-                        <Link className="btn btn-square btn-primary rounded-circle mx-1" to={`/vinyls/${_id}/details`}>Details</Link>
+                        <Link className="btn btn-square btn-primary rounded-circle mx-1 new-btn" to={`/vinyls/${_id}/details`}>Details</Link>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,15 @@
-import { Link } from "react-router";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router";
 import useAuth from "../../hooks/useAuth";
 
 export default function Header() {
    const { email, isAuthenticated } = useAuth();
+   const location = useLocation()
+
+   useEffect(() => {
+      window.scrollTo(0, 0)
+   }, [location.pathname])
+   
 
    return (
       <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">

@@ -28,9 +28,9 @@ export default function Login() {
 
     return (
         <>
-            <div className="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+            <div className="container-fluid bg-light overflow-hidden my-5 px-lg-0 reg-log-container">
                 <div className="container quote px-lg-0">
-                    <div className="row g-0 mx-lg-0">
+                    <div className="row g-0 mx-lg-0 reg-log">
                         <div className="col-lg-6 ps-lg-0">
                             <div className="position-relative h-100">
                                 <img className="position-absolute img-fluid w-100 h-100" src="../../../public/images/smile.jpg" alt="" />
@@ -49,10 +49,10 @@ export default function Login() {
                                             <input type="password" className="form-control border-0" id="password" name="password" placeholder="Your Password" />
                                         </div>
                                         <div className="col-12">
-                                            <button className="btn btn-primary w-100 py-3" type="submit" disabled={isPending}>Login</button>
+                                            <button className="btn btn-primary w-100 py-3 new-btn" type="submit" disabled={isPending}>Login</button>
                                         </div>
-                                        <p className="field">
-                                            <span>If you don't have profile click <Link href="/register">Register</Link></span>
+                                        <p className="field reg-log-span">
+                                            <span>If you don't have profile click <Link to="/register" className='log-reg-text'>Register</Link></span>
                                         </p>
                                     </div>
                                 </form>

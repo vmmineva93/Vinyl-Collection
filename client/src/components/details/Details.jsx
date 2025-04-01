@@ -22,7 +22,7 @@ export default function Details() {
 
     const onLikeButtonClick = async () => {
         const updatedVinyl = await likeVinyl(vinyl);
-        setVinyl(updatedVinyl); 
+        setVinyl(updatedVinyl);
     }
 
     const vinylDeleteClickHandler = async () => {
@@ -43,78 +43,77 @@ export default function Details() {
 
     return (
         <div className={styles["outer-container"]}>
-        <div className={styles["inner-container"]}>
-            <div className={styles["details-container"]}>
-                <div className={styles["left-container"]}>
-                    <div className={styles["text-container"]}>
-                        <h1 className={styles["display-artist"]}>{vinyl.artist}</h1>
-                        <h1 className={styles["display-album"]}>{vinyl.album}</h1>
-                        <p className={styles["display-description"]}>{vinyl.description}</p>
-                        <div className={styles["vinyl-info"]}>
-                            <div className={styles["col-6"]}>
-                                <div className={styles["d-flex"]}>
-                                    <div className={styles["ms-4"]}>
-                                        <p className={styles["paragraph-info"]}>Label:</p>
-                                        <h5 className={styles["mb-0"]}>{vinyl.label}</h5>
+            <div className={styles["inner-container"]}>
+                <div className={styles["details-container"]}>
+                    <div className={styles["left-container"]}>
+                        <div className={styles["text-container"]}>
+                            <h1 className={styles["display-artist"]}>{vinyl.artist}</h1>
+                            <h1 className={styles["display-album"]}>{vinyl.album}</h1>
+                            <p className={styles["display-description"]}>{vinyl.description}</p>
+                            <div className={styles["vinyl-info"]}>
+                                <div className={styles["col-6"]}>
+                                    <div className={styles["d-flex"]}>
+                                        <div className={styles["ms-4"]}>
+                                            <p className={styles["paragraph-info"]}>Label:</p>
+                                            <h5 className={styles["mb-0"]}>{vinyl.label}</h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className={styles["col-6"]}>
-                                <div className={styles["d-flex"]}>
-                                    <div className={styles["ms-4"]}>
-                                        <p className={styles["paragraph-info"]}>Country:</p>
-                                        <h5 className={styles["mb-0"]}>{vinyl.country}</h5>
+                                <div className={styles["col-6"]}>
+                                    <div className={styles["d-flex"]}>
+                                        <div className={styles["ms-4"]}>
+                                            <p className={styles["paragraph-info"]}>Country:</p>
+                                            <h5 className={styles["mb-0"]}>{vinyl.country}</h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className={styles["col-6"]}>
-                                <div className={styles["d-flex"]}>
-                                    <div className={styles["ms-4"]}>
-                                        <p className={styles["paragraph-info"]}>Released:</p>
-                                        <h5 className={styles["mb-0"]}>{vinyl.released}</h5>
+                                <div className={styles["col-6"]}>
+                                    <div className={styles["d-flex"]}>
+                                        <div className={styles["ms-4"]}>
+                                            <p className={styles["paragraph-info"]}>Released:</p>
+                                            <h5 className={styles["mb-0"]}>{vinyl.released}</h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className={styles["col-6"]}>
-                                <div className={styles["d-flex"]}>
-                                    <div className={styles["ms-4"]}>
-                                        <p className={styles["paragraph-info"]}>Genre:</p>
-                                        <h5 className={styles["mb-0"]}>{vinyl.genre}</h5>
+                                <div className={styles["col-6"]}>
+                                    <div className={styles["d-flex"]}>
+                                        <div className={styles["ms-4"]}>
+                                            <p className={styles["paragraph-info"]}>Genre:</p>
+                                            <h5 className={styles["mb-0"]}>{vinyl.genre}</h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <div className={styles["col-6b"]}>
-                                <div className={styles["d-flexb"]}>
-                                {isOwner && (<>
-                                    <Link to={`/vinyls/${vinylId}/edit`} className={styles["btn-class"]}>Edit</Link>
-                                    <button onClick={vinylDeleteClickHandler} className={styles["btn-class"]}>Delete</button>
-                                    </>)}
-                                    <button onClick={onLikeButtonClick} className={styles["btn-class"]}>{isVinylLikedByCurrentUser ? "Dislike" : "Like"}</button>
+                                <div className={styles["col-6b"]}>
+                                    <div className={styles["d-flexb"]}>
+                                        {isOwner && userId && (<>
+                                            <Link to={`/vinyls/${vinylId}/edit`} className={styles["btn-class"]}>Edit</Link>
+                                            <button onClick={vinylDeleteClickHandler} className={styles["btn-class"]}>Delete</button>
+                                            <button onClick={onLikeButtonClick} className={styles["btn-class"]}>{isVinylLikedByCurrentUser ? "Dislike" : "Like"}</button>
+                                        </>)}
+                                    </div>
                                 </div>
-                            </div>
-                        <div className={styles["col-6"]}>
-                            <div className={styles["d-flex"]}>
-                                <div className={styles["ms-4"]}>
-                                    <div className={styles["likes"]}>
-                                        <img className="hearts" src="../../../public/images/heart.png" height="30px" width="30px" />
-                                        <span id="total-likes">Likes: {vinyl?.likedBy?.length}</span>
+                                <div className={styles["col-6"]}>
+                                    <div className={styles["d-flex"]}>
+                                        <div className={styles["ms-4"]}>
+                                            <div className={styles["likes"]}>
+                                                <img className="hearts" src="../../../public/images/heart.png" height="30px" width="30px" />
+                                                <span id="total-likes">Likes: {vinyl?.likedBy?.length}</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div className={styles["right-container"]}>
-                <div className={styles["pic-container"]}>
-                    <img className={styles["img-position"]}
-                        src={vinyl.imageUrl}
-                        alt="" />
+                    <div className={styles["right-container"]}>
+                        <div className={styles["pic-container"]}>
+                            <img className={styles["img-position"]}
+                                src={vinyl.imageUrl}
+                                alt="" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
     );
 }

@@ -1,4 +1,3 @@
-
 /********** Template CSS **********/
 /* :root {
     --primary: #65B530;
@@ -147,7 +146,7 @@ a:hover {
 }
 
 @media (max-width: 991.98px) {
-    .navbar .navbar-nav .nav-link  {
+    .navbar .navbar-nav .nav-link {
         margin-right: 0;
         padding: 10px 0;
     }
@@ -204,7 +203,7 @@ a:hover {
         position: relative;
         min-height: 500px;
     }
-    
+
     .header-carousel .owl-carousel-item img {
         position: absolute;
         width: 100%;
@@ -300,7 +299,7 @@ a:hover {
     background-size: cover;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
+.breadcrumb-item+.breadcrumb-item::before {
     color: var(--light);
 }
 
@@ -311,19 +310,19 @@ a:hover {
         max-width: 100% !important;
     }
 
-    .about-text  {
+    .about-text {
         padding-right: calc(((100% - 960px) / 2) + .75rem);
     }
 }
 
 @media (min-width: 1200px) {
-    .about-text  {
+    .about-text {
         padding-right: calc(((100% - 1140px) / 2) + .75rem);
     }
 }
 
 @media (min-width: 1400px) {
-    .about-text  {
+    .about-text {
         padding-right: calc(((100% - 1320px) / 2) + .75rem);
     }
 }
@@ -362,19 +361,19 @@ a:hover {
         max-width: 100% !important;
     }
 
-    .feature-text  {
+    .feature-text {
         padding-left: calc(((100% - 960px) / 2) + .75rem);
     }
 }
 
 @media (min-width: 1200px) {
-    .feature-text  {
+    .feature-text {
         padding-left: calc(((100% - 1140px) / 2) + .75rem);
     }
 }
 
 @media (min-width: 1400px) {
-    .feature-text  {
+    .feature-text {
         padding-left: calc(((100% - 1320px) / 2) + .75rem);
     }
 }
@@ -431,19 +430,19 @@ a:hover {
         max-width: 100% !important;
     }
 
-    .quote-text  {
+    .quote-text {
         padding-right: calc(((100% - 960px) / 2) + .75rem);
     }
 }
 
 @media (min-width: 1200px) {
-    .quote-text  {
+    .quote-text {
         padding-right: calc(((100% - 1140px) / 2) + .75rem);
     }
 }
 
 @media (min-width: 1400px) {
-    .quote-text  {
+    .quote-text {
         padding-right: calc(((100% - 1320px) / 2) + .75rem);
     }
 }
@@ -563,26 +562,26 @@ a:hover {
         max-width: 100% !important;
     }
 
-    .contact-text  {
+    .contact-text {
         padding-left: calc(((100% - 960px) / 2) + .75rem);
     }
 }
 
 @media (min-width: 1200px) {
-    .contact-text  {
+    .contact-text {
         padding-left: calc(((100% - 1140px) / 2) + .75rem);
     }
 }
 
 @media (min-width: 1400px) {
-    .contact-text  {
+    .contact-text {
         padding-left: calc(((100% - 1320px) / 2) + .75rem);
     }
 }
 
 .rounded-circle {
-    width: 64px; 
-    height: 64px; 
+    width: 64px;
+    height: 64px;
     background: #000000;
 }
 
@@ -634,14 +633,94 @@ a:hover {
 
 .form-wrapper {
     width: 30%;
-    margin: 100px auto;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.form-wrapper .new-btn {
+    margin-top: 20px;
 }
 
 
-img.hearts {
-    width: 33px;
-    height: 30px;
-    position: relative;
-    display: inline-block;
+.mt-5 {
+    margin-top: 0 !important;
 }
 
+.reg-log-container {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+
+.reg-log {
+    height: 500px;
+}
+
+.reg-log-span {
+    color: #000000;
+}
+
+.log-reg-pic {
+    max-height: 500px;
+}
+
+.log-reg-text {
+    color: #000000;
+    font-weight: bold;
+}
+
+.footer {
+    padding-bottom: 2rem !important;
+}
+
+.new-btn:hover {
+    background-color: pink;
+    border-color: pink;
+}
+
+.new-btn:active {
+    background-color: pink;
+    border-color: pink;
+}
+
+.search-btn {
+    text-decoration: none;
+    color: #FFFFFF;
+    /* font-weight: 300;
+    text-wrap: wrap; */
+    padding: 7px 15px;
+    font-size: 14px;
+    margin-left: 10px;
+    border-radius: 50rem;
+    margin-right: 1rem;
+    background-color: black;
+    border-color: black;
+    /* display: inline-block; */
+    line-height: 1.2;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+}
+
+.search {
+    text-align: right;
+}
+
+.search-input {
+    width: 250px;
+    border-radius: 5px;
+    border-color: beige;
+}
+
+.container-create, .container-edit {
+    background: url('../../public/images/background.jpg');
+    background-size: cover;
+}
+
+.no-vinyls {
+    text-align: center;
+}

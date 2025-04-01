@@ -12,7 +12,7 @@ export default function NotFound() {
                                 <div className="col-12 col-lg-8 text-center">
                                     <h1 className="display-3 text-white animated slideInDown mb-4">Page not found</h1>
                                     <p className="fs-5 text-white mb-4 pb-2">Sorry, we couldn’t find the page you’re looking for.</p>
-                                    <Link to="/" className="btn btn-primary rounded-pill py-md-3 px-md-5 me-3 animated slideInLeft">Go Back Home</Link>
+                                    <Link to="/" className="btn btn-primary rounded-pill py-md-3 px-md-5 me-3 animated slideInLeft new-btn">Go Back Home</Link>
                                 </div>
                             </div>
                         </div>

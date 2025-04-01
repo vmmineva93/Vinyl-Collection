@@ -27,12 +27,12 @@ export default function Register() {
         }
     }
     return (
-        <div className="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+        <div className="container-fluid bg-light overflow-hidden my-5 px-lg-0 reg-log-container">
             <div className="container quote px-lg-0">
-                <div className="row g-0 mx-lg-0">
+                <div className="row g-0 mx-lg-0 reg-log">
                     <div className="col-lg-6 ps-lg-0">
                         <div className="position-relative h-100">
-                            <img className="position-absolute img-fluid w-100 h-100" src="../../../public/images/smile.jpg" alt="" />
+                            <img className="position-absolute img-fluid w-100 h-100 log-reg-pic" src="../../../public/images/smile.jpg" alt="" />
                         </div>
                     </div>
                     <div className="col-lg-6 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
@@ -51,10 +51,10 @@ export default function Register() {
                                         <input type="password" className="form-control border-0" id="confirm-password" name="confirm-password" placeholder="Confirm Your Password" />
                                     </div>
                                     <div className="col-12">
-                                        <button className="btn btn-primary w-100 py-3" type="submit">Register</button>
+                                        <button className="btn btn-primary w-100 py-3 new-btn" type="submit">Register</button>
                                     </div>
-                                    <p className="field">
-                                        <span>If you already have profile click <Link to="/login">Login</Link></span>
+                                    <p className="field reg-log-span">
+                                        <span>If you already have profile click <Link to="/login" className='log-reg-text'>Login</Link></span>
                                     </p>
                                 </div>
                             </form>

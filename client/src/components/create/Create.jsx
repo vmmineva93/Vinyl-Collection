@@ -15,6 +15,7 @@ export default function Create() {
     return (
         <div className="container-create">
             <div className="form-wrapper">
+                <h2>Create Vinyl</h2>
                 <form action={submitAction}>
                     <div className="form-group">
                         <label htmlFor="artist"></label>
@@ -48,7 +49,7 @@ export default function Create() {
                         <label htmlFor="description"></label>
                         <textarea required name="description" className="form-control" id="description" placeholder="Description"></textarea>
                     </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary new-btn">Submit</button>
                 </form>
             </div>
         </div>

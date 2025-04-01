@@ -15,7 +15,7 @@ export default function Home() {
                             <div className="row justify-content-center">
                                 <div className="col-12 col-lg-8 text-center">
                                     <h1 className="display-3 text-white animated slideInDown mb-4">Welcome to Our AntiSocial Vinyl Club</h1>
-                                    <Link to="/vinyls" className="btn btn-primary rounded-pill py-md-3 px-md-5 me-3 animated slideInLeft">Collection</Link>
+                                    <Link to="/vinyls" className="btn btn-primary rounded-pill py-md-3 px-md-5 me-3 animated slideInLeft new-btn">Collection</Link>
                                 </div>
                             </div>
                         </div>

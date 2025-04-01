@@ -3,7 +3,7 @@ import { Link } from "react-router";
 export default function Footer() {
     return (
         <>
-            <div className="container-fluid bg-dark text-secondary footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+            <div className="container-fluid bg-dark text-secondary footer mt-5 py-5 wow fadeIn footer" data-wow-delay="0.1s">
                 <div className="container">
                     <div className="footer-wrapper">
                         <div className="col-lg-3 col-md-6">
