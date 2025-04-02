@@ -87,11 +87,11 @@ export default function Details() {
                                 <div className={styles["col-6b"]}>
                                     <div className={styles["d-flexb"]}>
 
-                                        {isOwner && (<>
+                                        {isOwner && userId && (<>
                                             <Link to={`/vinyls/${vinylId}/edit`} className={styles["btn-class"]}>Edit</Link>
                                             <button onClick={vinylDeleteClickHandler} className={styles["btn-class"]}>Delete</button>
                                         </>)}
-                                        {userId && isOwner && (<button onClick={onLikeButtonClick} className={styles["btn-class"]}>{isVinylLikedByCurrentUser ? "Dislike" : "Like"}</button>)}
+                                        {userId && (<button onClick={onLikeButtonClick} className={styles["btn-class"]}>{isVinylLikedByCurrentUser ? "Dislike" : "Like"}</button>)}
 
                                     </div>
                                 </div>

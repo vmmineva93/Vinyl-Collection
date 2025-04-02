@@ -39,7 +39,7 @@ export default function Create() {
                     </div>
                     <div className="form-group">
                         <label htmlFor="released"></label>
-                        <input required type="number" className="form-control" name="released" id="released" placeholder="Released" />
+                        <input required type="number" className="form-control" name="released" min="1900" max="2025" id="released" placeholder="Released (1900-2025)" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="genre"></label>

@@ -53,7 +53,7 @@ export default function Edit() {
                     </div>
                     <div className="form-group">
                         <label htmlFor="released"></label>
-                        <input required type="number" className="form-control" name="released" id="released" defaultValue={vinyl.released} />
+                        <input required type="number" className="form-control" name="released" min="1900" max="2025" id="released" defaultValue={vinyl.released} />
                     </div>
                     <div className="form-group">
                         <label htmlFor="genre"></label>
