@@ -123,13 +123,13 @@ export const useDeleteVinyl = () => {
     const { request } = useAuth();
 
     const deleteVinyl = async (vinylId) => {
-       try {
-        const response = await request.delete(`${baseUrl}/${vinylId}`);
-        return response;
-       } catch (error) {
-        console.error("Error deleting vinyl:", error);
-        throw error;
-       }
+        try {
+            const response = await request.delete(`${baseUrl}/${vinylId}`);
+            return response;
+        } catch (error) {
+            console.error("Error deleting vinyl:", error);
+            throw error;
+        }
     }
 
     return {

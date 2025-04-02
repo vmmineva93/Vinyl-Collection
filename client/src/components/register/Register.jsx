@@ -7,10 +7,10 @@ export default function Register() {
     const navigate = useNavigate();
     const { register } = useRegister();
     const { userLoginHandler } = useUserContext();
-
+   
     const registerHandler = async (formData) => {
         const { email, password } = Object.fromEntries(formData);
-
+       
         try {
             const confirmPassword = formData.get('confirm-password');
             if (password !== confirmPassword) {
@@ -23,7 +23,6 @@ export default function Register() {
             navigate('/');
         } catch (err) {
             toast.error(err.message)
-
         }
     }
     return (
