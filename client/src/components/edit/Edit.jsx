@@ -2,7 +2,6 @@ import { useNavigate, useParams } from "react-router";
 import { useEditVinyl, useVinyl } from "../../api/vinylApi"
 import useAuth from "../../hooks/useAuth";
 import { useEffect } from "react";
-import { toast } from 'react-toastify'
 
 export default function Edit() {
     const navigate = useNavigate()
@@ -11,11 +10,15 @@ export default function Edit() {
     const { vinyl } = useVinyl(vinylId);
     const { edit } = useEditVinyl();
 
-    const formAction = (formData) => {
+    const formAction = async (formData) => {
         const vinylData = { ...Object.fromEntries(formData), likedBy: vinyl?.likedBy };
-        edit(vinylId, vinylData)
-            .then(() => navigate(`/vinyls/${vinylId}/details`))
-            .catch((err) => alert("Failed to edit vinyl ", err));
+        try {
+            await edit(vinylId, vinylData);
+            navigate(`/vinyls/${vinylId}/details`)
+        } catch (err) {
+            alert("Failed to edit vinyl ", err);
+            navigate(`/vinyls/${vinylId}/details`)
+        }
     }
 
     useEffect(() => {

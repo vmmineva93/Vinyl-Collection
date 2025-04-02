@@ -6,7 +6,7 @@ const baseUrl = 'http://localhost:3030/data/vinyls';
 
 export const useVinyls = () => {
     const [vinyls, setVinyls] = useState([]);
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         request.get(baseUrl)
@@ -47,23 +47,29 @@ export const useLatestVinyls = () => {
 
 export const useVinyl = (vinylId) => {
     const [vinyl, setVinyl] = useState({});
-    const { request } = useAuth()
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         request.get(`${baseUrl}/${vinylId}`)
-            .then((data) => setVinyl(data))
-            .catch((error) => alert('Error fetching vinyl', error))
-    }, [vinylId])
+            .then((data) => {
+                setVinyl(data);
+                setIsLoading(false);
+            })
+            .catch((error) => {
+                alert('Error fetching vinyl', error);
+                setIsLoading(false);
+            })
+    }, [vinylId]);
 
 
     return {
-        vinyl
+        vinyl,
+        isLoading
     };
 };
 
 export const useLikeVinyl = () => {
-    const { request, userId } = useAuth()
-
+    const { request, userId } = useAuth();
 
     const likeVinyl = (vinyl) => {
         const isVinylLikedByCurrentUser = vinyl?.likedBy?.includes(userId);
@@ -80,8 +86,14 @@ export const useLikeVinyl = () => {
 export const useCreateVinyl = () => {
     const { request } = useAuth();
 
-    const create = (vinylData) => {
-        request.post(baseUrl, { ...vinylData, likedBy: [] });
+    const create = async (vinylData) => {
+        try {
+            const response = request.post(baseUrl, { ...vinylData, likedBy: [] });
+            return response;
+        } catch (error) {
+            console.error("Error creating vinyl:", error);
+            throw error;
+        }
     }
 
     return {
@@ -90,7 +102,7 @@ export const useCreateVinyl = () => {
 };
 
 export const useEditVinyl = () => {
-    const { request } = useAuth()
+    const { request } = useAuth();
 
     const edit = async (vinylId, vinylData) => {
         try {
@@ -110,8 +122,15 @@ export const useEditVinyl = () => {
 export const useDeleteVinyl = () => {
     const { request } = useAuth();
 
-    const deleteVinyl = (vinylId) =>
-        request.delete(`${baseUrl}/${vinylId}`);
+    const deleteVinyl = async (vinylId) => {
+       try {
+        const response = await request.delete(`${baseUrl}/${vinylId}`);
+        return response;
+       } catch (error) {
+        console.error("Error deleting vinyl:", error);
+        throw error;
+       }
+    }
 
     return {
         deleteVinyl,

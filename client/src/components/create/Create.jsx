@@ -7,10 +7,14 @@ export default function Create() {
 
     const submitAction = async (formData) => {
         const vinylData = Object.fromEntries(formData);
-
-        await createVinyl(vinylData);
-
-        navigate('/vinyls');
+        try {
+            await createVinyl(vinylData);
+            navigate('/vinyls');
+        } catch (err) {
+            alert("Failed to create vinyl ", err);
+            navigate('/vinyls');
+        }
+           
     };
     return (
         <div className="container-create">

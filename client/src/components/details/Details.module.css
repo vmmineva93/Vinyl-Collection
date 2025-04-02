@@ -1,28 +1,21 @@
 .outer-container {
     background-color: #f5f5f5 !important;
-    /* margin-top: 3rem !important;
-    margin-bottom: 3rem !important; */
     overflow: hidden !important;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    max-height: 800px;
+}
+
+.inner-container {
+    max-width: 100% !important;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
 }
 
-/* .inner-container {
-    max-width: 100% !important;
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-} */
-
 .details-container {
-    /* margin-right: 0 !important;
-    margin-left: 0 !important;
-    --bs-gutter-y: 0; */
-    /* --bs-gutter-x: 1.5rem; */
     display: flex;
-    /* flex-wrap: wrap;
-    margin-top: calc(var(--bs-gutter-y)* -1); */
 }
 
 .left-container {
@@ -30,9 +23,6 @@
     padding-top: 3rem !important;
     padding-bottom: 3rem !important;
     flex: 1;
-    width: 40%;
-    /* max-width: 100%;
-    margin-top: var(--bs-gutter-y); */
 }
 
 .text-conteiner {
@@ -44,7 +34,6 @@ h1 {
     margin-bottom: 2rem !important;
     font-size: 2rem;
     font-weight: 900;
-    /* line-height: 1.2; */
     margin-top: 0;
     font-family: "Roboto", sans-serif;
     color: #161616;
@@ -56,7 +45,6 @@ h1 {
     max-width: 700px;
     overflow: hidden;
     word-wrap: break-word;
-    /* margin-top: 0; */
 }
 
 .vinyl-info {
@@ -64,10 +52,9 @@ h1 {
     --bs-gutter-x: 1.5rem;
     display: flex;
     flex-wrap: wrap;
-    /* margin-top: calc(var(--bs-gutter-y)* -1); */
     margin-right: calc(var(--bs-gutter-x) / -2);
     margin-left: calc(var(--bs-gutter-x) / -2);
-    
+
 }
 
 .col-6 {
@@ -126,17 +113,22 @@ h5 {
 
 .right-container {
     min-height: 400px;
-    padding-right: 0 !important; 
+    padding-right: 0 !important;
     flex: 1;
-    width: 40%;
-    max-width: 100%;
     padding-left: calc(var(--bs-gutter-x) / 2);
     margin-top: var(--bs-gutter-y);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+
 }
 
 .pic-container {
     height: 100% !important;
     position: relative !important;
+    width: 100%;
+    object-fit: contain;
 }
 
 .img-position {
@@ -145,15 +137,12 @@ h5 {
     position: absolute !important;
     max-width: 100%;
     vertical-align: middle;
-    overflow-clip-margin: content-box;
     overflow: clip;
 }
 
 .btn-class {
     text-decoration: none;
     color: #FFFFFF;
-    /* font-weight: 300;
-    text-wrap: wrap; */
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
     padding-right: 2rem !important;
@@ -162,7 +151,6 @@ h5 {
     margin-right: 1rem !important;
     background-color: black;
     border-color: black;
-    /* display: inline-block; */
     line-height: 1.2;
     text-align: center;
     vertical-align: middle;
@@ -181,4 +169,9 @@ h5 {
 .btn-class:active {
     background-color: pink;
     border-color: pink;
+}
+
+.loading {
+    width: 100%;
+    height: 400px;
 }

@@ -649,8 +649,7 @@ a:hover {
 .reg-log-container {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
+
 }
 
 
@@ -673,6 +672,10 @@ a:hover {
 
 .footer {
     padding-bottom: 2rem !important;
+    box-shadow: 10px 10px 14px 14px #ffffff42;
+    margin-bottom: 0.5px;
+    position: relative;
+
 }
 
 .new-btn:hover {
@@ -688,8 +691,6 @@ a:hover {
 .search-btn {
     text-decoration: none;
     color: #FFFFFF;
-    /* font-weight: 300;
-    text-wrap: wrap; */
     padding: 7px 15px;
     font-size: 14px;
     margin-left: 10px;
@@ -697,7 +698,6 @@ a:hover {
     margin-right: 1rem;
     background-color: black;
     border-color: black;
-    /* display: inline-block; */
     line-height: 1.2;
     text-align: center;
     vertical-align: middle;
@@ -716,11 +716,32 @@ a:hover {
     border-color: beige;
 }
 
-.container-create, .container-edit {
+.container-create,
+.container-edit {
     background: url('../../public/images/background.jpg');
     background-size: cover;
 }
 
 .no-vinyls {
     text-align: center;
+}
+
+.header {
+    box-shadow: -10px -10px 14px 14px #ffffff42;
+    margin-bottom: 0.5px;
+}
+
+.loading {
+    width: 100%;
+    height: 400px;
+}
+
+.not-found {
+    max-height: 1100px;
+    width: 100%;
+    position: relative !important;
+}
+
+.pb-5 {
+    padding-bottom: 0 !important;
 }

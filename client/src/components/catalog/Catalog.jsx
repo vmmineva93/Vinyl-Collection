@@ -17,7 +17,7 @@ export default function Catalog() {
         setSearchTerm(searchTerm)
     }
 
-    if (isLoading) return (<div>Loading...</div>)
+    if (isLoading) return (<div className="loading"><h1>Loading...</h1></div>)
     return (
         <div className="container-xxl py-5">
             <form className="search" onSubmit={handleSearchSubmit} >

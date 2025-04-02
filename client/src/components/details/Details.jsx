@@ -8,7 +8,7 @@ export default function Details() {
     const navigate = useNavigate();
     const { userId } = useAuth()
     const { vinylId } = useParams();
-    const { vinyl: initialVinyl } = useVinyl(vinylId);
+    const { vinyl: initialVinyl, isLoading } = useVinyl(vinylId);
     const { likeVinyl } = useLikeVinyl();
     const { deleteVinyl } = useDeleteVinyl();
     const [vinyl, setVinyl] = useState({});
@@ -39,7 +39,8 @@ export default function Details() {
 
     const isOwner = userId === vinyl?._ownerId;
 
-    if (!vinyl) return (<div>No information for this vinyl</div>)
+    if (isLoading) return (<div className={styles["loading"]}><h1>Loading...</h1></div>)
+    if (!vinyl) return (<div><h1>No information for this vinyl</h1></div>)
 
     return (
         <div className={styles["outer-container"]}>
@@ -85,11 +86,13 @@ export default function Details() {
                                 </div>
                                 <div className={styles["col-6b"]}>
                                     <div className={styles["d-flexb"]}>
-                                        {isOwner && userId && (<>
+
+                                        {isOwner && (<>
                                             <Link to={`/vinyls/${vinylId}/edit`} className={styles["btn-class"]}>Edit</Link>
                                             <button onClick={vinylDeleteClickHandler} className={styles["btn-class"]}>Delete</button>
-                                            <button onClick={onLikeButtonClick} className={styles["btn-class"]}>{isVinylLikedByCurrentUser ? "Dislike" : "Like"}</button>
                                         </>)}
+                                        {userId && isOwner && (<button onClick={onLikeButtonClick} className={styles["btn-class"]}>{isVinylLikedByCurrentUser ? "Dislike" : "Like"}</button>)}
+
                                     </div>
                                 </div>
                                 <div className={styles["col-6"]}>

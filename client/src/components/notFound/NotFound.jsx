@@ -5,7 +5,7 @@ export default function NotFound() {
         <div className="container-fluid p-0 pb-5">
             <div className="owl-carousel header-carousel position-relative">
                 <div className="owl-carousel-item position-relative">
-                    <img className="img-fluid" src="../../../public/images/vinyl-pic.jpg" alt="" />
+                    <img className="img-fluid not-found" src="../../../public/images/no-vinyl.jpg" alt="" />
                     <div className="carousel-inner">
                         <div className="container">
                             <div className="row justify-content-center">

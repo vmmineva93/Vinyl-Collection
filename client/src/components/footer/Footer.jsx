@@ -12,10 +12,10 @@ export default function Footer() {
                             <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+359 99 99 99</p>
                             <p className="mb-2"><i className="fa fa-envelope me-3"></i>antisocialvinylclub@gmail.com</p>
                             <div className="d-flex pt-2">
-                                <Link className="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i className="fab fa-twitter"></i></Link>
-                                <Link className="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i className="fab fa-facebook-f"></i></Link>
-                                <Link className="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i className="fab fa-youtube"></i></Link>
-                                <Link className="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i className="fab fa-linkedin-in"></i></Link>
+                                <a className="btn btn-square btn-outline-secondary rounded-circle me-2" href="https://x.com/"><i className="fab fa-twitter"></i></a>
+                                <a className="btn btn-square btn-outline-secondary rounded-circle me-2" href="https://www.facebook.com/"><i className="fab fa-facebook-f"></i></a>
+                                <a className="btn btn-square btn-outline-secondary rounded-circle me-2" href="https://www.youtube.com/"><i className="fab fa-youtube"></i></a>
+                                <a className="btn btn-square btn-outline-secondary rounded-circle me-2" href="https://www.linkedin.com/"><i className="fab fa-linkedin-in"></i></a>
                             </div>
                            
                         </div>
@@ -24,7 +24,7 @@ export default function Footer() {
                 </div>
                 <div className="container-fluid">
                     <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <Link className="border-bottom" href="/">AntiSocialVinylClub</Link>, All Right Reserved.
+                        &copy; <Link className="border-bottom" to="/">AntiSocialVinylClub</Link>, All Right Reserved.
                     </div>
                 </div>
             </div>

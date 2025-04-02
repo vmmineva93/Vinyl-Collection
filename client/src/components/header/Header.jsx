@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router";
 import useAuth from "../../hooks/useAuth";
 
 export default function Header() {
-   const { email, isAuthenticated } = useAuth();
+   const { isAuthenticated } = useAuth();
    const location = useLocation()
 
    useEffect(() => {
@@ -12,7 +12,7 @@ export default function Header() {
    
 
    return (
-      <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
+      <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5 header">
          <Link to="/" className="navbar-brand d-flex align-items-center">
             <img src="../../../public/images/newVinyl.png" width='70' alt="logo" />
          </Link>
@@ -32,10 +32,10 @@ export default function Header() {
                      <Link to="/register" className="nav-item nav-link">Register</Link> </>)}
             </div>
             <div className="h-100 d-lg-inline-flex align-items-center d-none">
-               <Link className="btn btn-square rounded-circle bg-light text-primary me-2" to=""><i className="fab fa-facebook-f"></i></Link>
-               <Link className="btn btn-square rounded-circle bg-light text-primary me-2" to=""><i className="fab fa-twitter"></i></Link>
-               <Link className="btn btn-square rounded-circle bg-light text-primary me-2" to=""><i className="fab fa-linkedin-in"></i></Link>
-               <Link className="btn btn-square rounded-circle bg-light text-primary me-0" to=""><i className="fab fa-instagram"></i></Link>
+               <a className="btn btn-square rounded-circle bg-light text-primary me-2" href="https://www.facebook.com/"><i className="fab fa-facebook-f"></i></a>
+               <a className="btn btn-square rounded-circle bg-light text-primary me-2" href="https://x.com/"><i className="fab fa-twitter"></i></a>
+               <a className="btn btn-square rounded-circle bg-light text-primary me-2" href="https://www.linkedin.com/"><i className="fab fa-linkedin-in"></i></a>
+               <a className="btn btn-square rounded-circle bg-light text-primary me-0" href="https://www.instagram.com/"><i className="fab fa-instagram"></i></a>
             </div>
          </div>
       </nav>
